@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import yt_dlp
 import os
-bot = telebot.TeleBot('8201401291:AAF_Aj_y74xXJ9ZTwO2-2lQ_-DEi376NDvU')
+bot = telebot.TeleBot('')
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -39,4 +39,5 @@ def get_text_messages(message):
             bot.delete_message(message.chat.id, msg.message_id)
         except Exception as e:
             bot.edit_message_text(f"❌ Ошибка при скачивании: {str(e)}", message.chat.id, msg.message_id)
+
 bot.polling(none_stop=True, interval=0)
